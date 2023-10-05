@@ -3,3 +3,5 @@ terraform/*.terraform.*
 terraform/terraform.*
 *.exe
 *.pem
+__pycache__/
+development/
