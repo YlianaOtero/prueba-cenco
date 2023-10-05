@@ -1,30 +1,11 @@
-resource "aws_security_group" "security_group" {
-  name        = "security-group"
-  description = "Security group for k3s cluster"
-
-  ingress {
-    from_port = 22
-    to_port   = 22
-    protocol  = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]  
-  }
-
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"] 
-  }
-}
-
 resource "aws_instance" "k3s_server" {
-  ami           = "ami-03a6eaae9938c858c"
+  ami           = "ami-053b0d53c279acc90"
   instance_type = "t2.micro"
-  key_name      = "instance-keys"
+  
+  key_name               = aws_key_pair.key_pair.key_name
+  vpc_security_group_ids = [aws_security_group.k3s_nodes_sg.id]
 
-  security_group_names = [aws_security_group.security_group.name]
-
-  count = 1
+  count = 3
 
   tags = {
     Name = "k3s-control-plane-${count.index + 1}"
@@ -32,15 +13,16 @@ resource "aws_instance" "k3s_server" {
 }
 
 resource "aws_instance" "k3s_worker" {
-  ami           = "ami-03a6eaae9938c858c"
+  ami           = "ami-053b0d53c279acc90"
   instance_type = "t2.micro"  
-  key_name      = "instance-keys"
+  
+  key_name               = aws_key_pair.key_pair.key_name
+  vpc_security_group_ids = [aws_security_group.k3s_nodes_sg.id]
 
-  security_group_names = [aws_security_group.security_group.name]
-
-  count = 1  
+  count = 2  
 
   tags = {
     Name = "k3s-worker-${count.index + 1}"
   }
 }
+
