@@ -1,5 +1,5 @@
-resource "aws_security_group" "k3s-nodes-sg" {
-  name        = "k3s-nodes-sg"
+resource "aws_security_group" "k3s_nodes_sg" {
+  name        = "k3s_nodes_sg"
   description = "Security group for k3s nodes"
 
   ingress {
