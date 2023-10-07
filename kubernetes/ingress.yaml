@@ -1,0 +1,20 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongIngress
+metadata:
+  name: greetings-ingress
+  namespace: greetings
+  annotations:
+    kubernetes.io/ingress.class: "kong"
+proxy:
+  path: /
+  protocol: http
+  connect_timeout: 60000
+  read_timeout: 60000
+  write_timeout: 60000
+route:
+  strip_path: true
+  methods:
+    - GET
+  regex_priority: 0
+  paths:
+    - /

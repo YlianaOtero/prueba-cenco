@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: greetings
+  namespace: greetings
+spec:
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: greetings
+  project: default
+  source:
+    repoURL: 'https://github.com/YlianaOtero/prueba-cenco.git'
+    path: kubernetes
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
