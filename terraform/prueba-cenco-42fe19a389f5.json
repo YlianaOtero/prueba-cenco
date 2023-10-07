@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "prueba-cenco",
+  "private_key_id": "42fe19a389f5aa972108f9fa3c1b22184cbb7a4a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQCd1+KPr6P66OiK\nKfQaEcopY/pULH1SFAQJuNQ8oSNu6/Sck8pFqzeC3Tersda89A66qQmYKBzaavPr\ni9mTebp0ylO3RdvAIL9P3igtpqTJIiMDRGgt10AignmhyR1b8ZwnPFS0uAbi1qK/\nld7fBdfDDIK3nEh5w+qcCg6RwtaJNI8jhj0YWkwfDCZSd1jtuIja0Ug3/612bg8n\ncF0re50UcaFb/VtMG1z1fWjUXFutgZKf8Ik7AG0H60pneLEQKxzucXdnKOjohus9\nNc33o3FKGM1YRUbkyskJmix7weCYrTFim/J9ARqnlk8xXsFc1qZW2U1pLUwPn6uV\n+n8r+mFrAgMBAAECggEAChkTgmJX6Pq5VPMUWqfOGXH73YjpGltzp+GRf/15F4tB\nEqFPCYz65KrdX5hL5u1TYed9i/GJAwPG1HticVGSanVYZlTlFzht6AcMGZUow3Tx\n7RWu91VnFRSCAb+TJ4/GwykHbEMkezxrAtTsm+aZfcqqzcjrenePs0+rZfGjXJMM\ntKeKx4cuUBCEm3J0M5vw38NDML1Hu05OINq3i9Ivse3ijHtRV3lSMIK9H5Kjn1Ch\nxE7UnkzuU5/m3g0tjEWAIeIX95f3Fr1x39LSIILe/vFy2lFyTAVGMLP8f6Ci5SHC\nBfGn23Yv65JL37km2lGtpWuequLchfQ49nqkbnYKSQKBgQDbdNrak6SXN/h5E67O\nhlWZiZgQFFcPGovlsWq3fAI4KUrr8Okz0RA6c3LGcIqDmVUauPFijU2h4CmwRLEM\n0TKDpe090yZdOCUi7vXimfcTg/RtaJREb2Qse0qAdGlxLnvDgsJaxRlU4PojhUEN\n+uksk/QhwqZsBrwAcXV33PaP4wKBgQC4IIppQtYQrtoxHx1cMnCmTBSFF1nfiitu\nGW+v/vO65ONIeT8QkN46fvTUCS/OqpgY6UMZ+4hklGh7SS1BVAPW4t1eBMbkf466\nC1kiK4nM934yuwjdot9zp3mQas0wnjriQHbRd2mjleikwyn+RccbzGdyF+R1fJen\n4DzTgzQO2QKBgQCpx7fhTkQRsX2LvkyI/qiOxkJcfj/0MWd15lJXbZsR8/BApPrl\n2aIidlqfZ0XiFegfamFlC0i6KYBXHG2VKutXqjDmmcqeZ+djJVgZXWAnOvkJA9Vh\nNIRdXW0AAA/rPjkFws22B7JXVk5u2JLBzBJFKJnA3KSAAp3EAgMNHmeqXQKBgQCu\nS+96ERC+niZhlYiffAfzA9Xw3tfuqcbO5Dk7quZhpsYYFt5B+kDDsuZjyYZ95jMw\nca9ZaygDvhDhk7XJP5Sa2AqhM3hrWOxs5M0tcXVyl13Y/AA6fjF0M7b5pIA0Y7Rt\n9IQFaTqQ5hlhznV0A+2lPOs3r7JOHPEas0QhHPQskQKBgQCD2r/dAWYp/qIOJ2IX\n+1NvohQHRasysWThyhNdvo+DVbuZxGVSu04thZ7E8daHqYwhJqi9jIx7ni/1Ia9r\nt4R88xcET32nBas7zJF3dRmovpKwQs7D6E2UIzjfjRwR7wn2SwqrYx01MSGc8COS\n0o+DEPOrl0xsFdzER9kOwuhoJA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "id-prueba-cenco-terraform@prueba-cenco.iam.gserviceaccount.com",
+  "client_id": "102201746198293953054",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/id-prueba-cenco-terraform%40prueba-cenco.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
