@@ -1,7 +1,7 @@
 on: 
   push:
-  paths: 
-  - 'docker/**'
+    paths: 
+    - 'docker/**'
 name: build-and-push
 env:
   DOCKER_USER: ${{secrets.DOCKER_USERNAME}}
