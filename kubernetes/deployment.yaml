@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: greetings
-          image: ylianaotero/prueba-cenco:2023-10-08--59-51
+          image: ylianaotero/prueba-cenco:b51b2e933578661253925f2a54e1daf9a5b9e3bd
           ports:
             - containerPort: 5000
