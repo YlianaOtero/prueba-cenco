@@ -14,16 +14,13 @@ jobs:
     runs-on: ubuntu-latest 
     steps:
     - uses: actions/checkout@v2 
-    - name: Get current date 
-      id: date
-      run: echo "::set-output name=date::$(date +'%Y-%m-%d--%M-%S')"
     - name: docker login
       run: | 
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD  
     - name: Build the Docker image 
-      run: docker build . --file docker/Dockerfile --tag $DOCKER_USER/$REPO_NAME:${{ steps.date.outputs.date }}
+      run: docker build . --file docker/Dockerfile --tag $DOCKER_USER/$REPO_NAME:${{ github.sha }}
     - name: Docker Push
-      run: docker push $DOCKER_USER/$REPO_NAME:${{ steps.date.outputs.date }}
+      run: docker push $DOCKER_USER/$REPO_NAME:${{ github.sha }}
 
   update-deployment:
     runs-on: ubuntu-latest
@@ -31,18 +28,15 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-    - name: Get current date 
-      id: date
-      run: echo "::set-output name=date::$(date +'%Y-%m-%d--%M-%S')"
     - name: Update deployment.yaml
       run: |
-        sed -i 's|image: ylianaotero/prueba-cenco:.*|image: '"$DOCKER_USER/$REPO_NAME:${{ steps.date.outputs.date }}"'|' kubernetes/deployment.yaml
+        sed -i 's|image: ylianaotero/prueba-cenco:.*|image: '"$DOCKER_USER/$REPO_NAME:${{ github.sha }}"'|' kubernetes/deployment.yaml
     - name: Commit changes
       run: |
         git config --local user.email "actions@github.com"
         git config --local user.name "GitHub Actions"
         git add kubernetes/deployment.yaml
-        git commit -m "Se actualiza deployment para que utilice la ultima imagen $DOCKER_USER/$REPO_NAME:${{ steps.date.outputs.date }}"
+        git commit -m "Se actualiza deployment para que utilice la ultima imagen $DOCKER_USER/$REPO_NAME:${{ github.sha }}"
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
