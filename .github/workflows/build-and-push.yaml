@@ -36,7 +36,7 @@ jobs:
         git config --local user.email "actions@github.com"
         git config --local user.name "GitHub Actions"
         git add kubernetes/deployment.yaml
-        git commit -m "Se actualiza deployment para que utilice la ultima imagen $DOCKER_USER/$REPO_NAME:${{ github.sha }}"
+        git commit -m "Se actualiza deployment para que utilice la ultima imagen"
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
