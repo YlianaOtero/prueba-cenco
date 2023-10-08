@@ -6,7 +6,7 @@ on:
       - 'docker/**'
 name: build-and-deploy
 env:
-  DOCKER_USERNAME: ${{secrets.DOCKER_USERNAMENAME}}
+  DOCKER_USER: ${{secrets.DOCKER_USERNAME}}
   DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
   REPO_NAME: ${{secrets.DOCKER_REPO}}
 jobs:
@@ -16,11 +16,11 @@ jobs:
     - uses: actions/checkout@v2 
     - name: docker login
       run: | 
-        docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD  
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD  
     - name: Build the Docker image 
-      run: docker build . --file docker/Dockerfile --tag $DOCKER_USERNAME/$REPO_NAME:${{ github.sha }}
+      run: docker build . --file docker/Dockerfile --tag $DOCKER_USER/$REPO_NAME:${{ github.sha }}
     - name: Docker Push
-      run: docker push $DOCKER_USERNAME/$REPO_NAME:${{ github.sha }}
+      run: docker push $DOCKER_USER/$REPO_NAME:${{ github.sha }}
 
   update-deployment:
     runs-on: ubuntu-latest
@@ -30,13 +30,13 @@ jobs:
       uses: actions/checkout@v2
     - name: Update deployment.yaml
       run: |
-        sed -i 's|image: ylianaotero/prueba-cenco:.*|image: '"$DOCKER_USERNAME/$REPO_NAME:${{ github.sha }}"'|' kubernetes/deployment.yaml
+        sed -i 's|image: ylianaotero/prueba-cenco:.*|image: '"$DOCKER_USER/$REPO_NAME:${{ github.sha }}"'|' kubernetes/deployment.yaml
     - name: Commit changes
       run: |
         git config --local user.email "actions@github.com"
         git config --local user.name "GitHub Actions"
         git add kubernetes/deployment.yaml
-        git commit -m "Se actualiza deployment para que utilice la ultima imagen $DOCKER_USERNAME/$REPO_NAME:${{ github.sha }}"
+        git commit -m "Se actualiza deployment para que utilice la ultima imagen $DOCKER_USER/$REPO_NAME:${{ github.sha }}"
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
