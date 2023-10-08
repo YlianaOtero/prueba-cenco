@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: greetings
-          image: ylianaotero/prueba-cenco:b51b2e933578661253925f2a54e1daf9a5b9e3bd
+          image: "$DOCKER_USER/$REPO_NAME:f67a66c00edda2fb2de4548f5335b8cdce394e04"
           ports:
             - containerPort: 5000
