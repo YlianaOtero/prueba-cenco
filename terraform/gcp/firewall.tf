@@ -1,11 +1,6 @@
-variable "source_ip_range" {
-  description = "Source IP range for the firewall rules"
-  default     = "10.128.0.0/20"
-}
-
 resource "google_compute_firewall" "k3s_nodes_fw" {
   name    = "k3s-nodes-fw"
-  network = "default"
+  network = var.network_name
 
   allow {
     protocol = "tcp"
@@ -24,7 +19,7 @@ resource "google_compute_firewall" "k3s_nodes_fw" {
 
 resource "google_compute_firewall" "postgres_fw" {
   name    = "postgres-fw"
-  network = "default" 
+  network = var.network_name
 
   allow {
     protocol = "tcp"
@@ -38,7 +33,7 @@ resource "google_compute_firewall" "postgres_fw" {
 
 resource "google_compute_firewall" "default_egress_fw" {
   name    = "default-egress-fw"
-  network = "default" 
+  network = var.network_name
 
   allow {
     protocol = "all"

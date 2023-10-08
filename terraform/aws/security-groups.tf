@@ -1,8 +1,3 @@
-variable "source_ip_range" {
-  description = "Source IP range for the firewall rules"
-  default     = "0.0.0.0/0"
-}
-
 resource "aws_security_group" "k3s_nodes_sg" {
   name        = "k3s_nodes_sg"
   description = "Security group for k3s nodes"
