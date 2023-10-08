@@ -26,9 +26,6 @@ jobs:
       run: docker build . --file Dockerfile --tag $DOCKER_USER/$REPO_NAME:${{ env.TAG }}
     - name: Docker Push
       run: docker push $DOCKER_USER/$REPO_NAME:${{ env.TAG }}
-      shell: bash
-        command: echo "docker_image_tag=${DOCKER_IMAGE_TAG}" >> $GITHUB_ENV
-
   update-deployment:
     runs-on: ubuntu-latest
     needs: push-image-to-docker-hub
