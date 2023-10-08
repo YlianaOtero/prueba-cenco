@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY /docker/requirements.txt .
 
-RUN pip install -r /docker/requirements.txt
+RUN pip install -r requirements.txt
 
 COPY . .
 
