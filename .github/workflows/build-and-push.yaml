@@ -1,7 +1,7 @@
 on: 
   push:
     branches:
-      - action-test
+      - main
     paths: 
       - 'docker/**'
 name: build-and-deploy
@@ -40,5 +40,5 @@ jobs:
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
-        branch: action-test
+        branch: main
         github_token: ${{ github.token }}
