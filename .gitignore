@@ -3,5 +3,8 @@ terraform/*.terraform.*
 terraform/terraform.*
 *.exe
 *.pem
+*.ppk
+service-account-key.json
 __pycache__/
 development/
+scripts/old/
