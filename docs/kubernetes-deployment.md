@@ -10,3 +10,12 @@ En [deployment.yaml](/kubernetes/deployment.yaml) se define el deployment de la 
 
 Si, por ejemplo, se modifica el código de la aplicación en [greetings.py](/greetings.py), se dispara el workflow, entonces se hace el build de la nueva imagen, se sube a Docker hub y se actualiza [deployment.yaml](/kubernetes/deployment.yaml) con la nueva imagen. ArgoCD detecta que hubo un cambio en el deployment, e implementa la nueva versión de la aplicación en el cluster de Kuberentes.
 
+## Service
+En [service.yaml](/kubernetes/service.yaml) se define el NodePort de la aplicación. Este servicio se utiliza para exponer un despliegue de una aplicación Python que se ejecuta en el puerto 5000. Dirigirá el tráfico a los pods que tienen la etiqueta app: greetings.
+
+El campo selector especifica que el servicio debe dirigir el tráfico a pods con la etiqueta app: greetings. Esto significa que el servicio dirigirá el tráfico al despliegue que tiene la etiqueta app: greetings.
+
+## Ingress
+En [ingress.yaml](/kubernetes/ingress.yaml) se define un recurso KongIngress en el namespace de la aplicación, para dirigir el tráfico entrante al servicio que expone el despliegue de la aplicación greetings. 
+
+Este ingress utiliza la ingress class de kong. Usa el protocolo HTTP y dirige el tráfico a la ruta raíz (/).
