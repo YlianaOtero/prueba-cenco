@@ -1,7 +1,14 @@
-development/
-__pycache__/
 terraform.tfstate*
 terraform.tfstate.backup*
 .terraform/
 .terraform.lock.hcl
+terraform/.terraform/
+terraform/*.terraform.*
+terraform/terraform.*
+*.exe
 *.pem
+*.ppk
+terraform/service-account-key.json
+__pycache__/
+development/
+scripts/old/
