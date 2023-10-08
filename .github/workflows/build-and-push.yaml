@@ -9,7 +9,6 @@ env:
   DOCKER_USER: ${{secrets.DOCKER_USERNAME}}
   DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
   REPO_NAME: ${{secrets.DOCKER_REPO}}
-  GITHUB_TOKEN: ${{ github.token }}
 jobs:
   push-image-to-docker-hub:  
     runs-on: ubuntu-latest 
@@ -48,4 +47,4 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         branch: action-test
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ github.token }}
