@@ -1,5 +1,5 @@
 resource "aws_security_group" "k3s_nodes_sg" {
-  name        = "k3s_nodes_sg"
+  name        = "k3s_servers_sg"
   description = "Security group for k3s nodes"
 
   ingress {
@@ -116,7 +116,7 @@ resource "aws_security_group" "k3s_nodes_sg" {
 }
 
 resource "aws_security_group" "postgres_sg" {
-  name        = "postgres_sg"
+  name        = "postgres_server_sg"
   description = "Security group for PostgreSQL"
 
   ingress {
